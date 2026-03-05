@@ -1,0 +1,19 @@
+# OPERADORES RELACIONAIS
+
+  # usados para comparar valores e
+  # retornar se isto é verdadeiro [true] ou falso [false]
+
+num1 = int(input('INSIRA O PRIMEIRO NUMERO:   '))
+num2 = int(input('INSIRA O SEGUNDO NUMERO:   '))
+num3 = (input('INSIRA O TERCEIRO NUMERO:   '))
+
+print(num1 == num2)
+print(num1 == num3)
+print(num2 == num3)
+print('-----------')
+print(num1 == num2)
+print(num1 != num2)
+print(num1 >= num2)
+print(num1 <= num2)
+print(num1 > num2)
+print(num1 < num2)
