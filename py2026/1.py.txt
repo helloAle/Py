@@ -1,0 +1,17 @@
+#=========================seção 1=============================
+
+# # queremos armazenar nome e idade
+
+# meu_nome = 'Alexandre'  #string
+# idade = 24              #Integer
+# mensagem = 1.83         #string
+# engenheiro = True       #boolean
+
+
+# print('meu_nome')
+# print(type(meu_nome))
+# print('idade')
+# print(type(idade))
+# print('mensagem')
+# print(type(mensagem))
+# print(type(engenheiro))
