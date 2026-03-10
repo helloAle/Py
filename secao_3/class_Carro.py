@@ -23,6 +23,10 @@ class Carro:
       print('O carro estava desligado')
 
   def ligar_seta(self, direcao):
+    if not self.ligado:
+      print(f'Ligue o carro primeiro :P')
+      return
+
     self.seta = direcao
     print(f'Seta ligada para a {self.seta}')
 
