@@ -22,9 +22,14 @@ class Carro:
     else:
       print('O carro estava desligado')
 
+  def ligar_seta(self, direcao):
+    self.seta = direcao
+    print(f'Seta ligada para a {self.seta}')
+
 carro1 = Carro('Preto', 2021)
 carro1.informacoes()
 carro1.ligar()
-carro1.desligar()
+# carro1.desligar()
+carro1.ligar_seta('esquerda')
 
 # ===========================================
