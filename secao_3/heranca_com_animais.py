@@ -1,0 +1,29 @@
+#  SOBRE HERANÇA
+
+# permite ter uma classe, parametros e metodos
+# ter outra classe e utilizar os parametros anteriores
+
+#   classe Pai (x, y, z):
+#     def 1
+#     def 2
+#     def 3
+
+#   classe filho (Pai):
+#      def 4
+#      def 5
+#      def 1
+
+class Animal:
+  def __init__ (self, nome, cor, especie):
+    self.nome = nome
+    self.cor = cor
+    self.especie = especie
+
+  def apresentar(self):
+    print(f'Eu sou o {self.especie} chamado {self.nome}')
+
+class Gato(Animal):
+  pass
+
+gato1 = Gato('Felix', 'Branco', 'Siames')
+gato1.apresentar()
