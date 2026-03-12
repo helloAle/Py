@@ -24,6 +24,16 @@ class Animal:
 
 class Gato(Animal):
   pass
+class Cachorro(Animal):
+  pass
+class Elefante(Animal):
+  pass
 
 gato1 = Gato('Felix', 'Branco', 'Siames')
 gato1.apresentar()
+
+cachorro1 = Cachorro('Russo','preto','Pastor Alemão')
+cachorro1.apresentar()
+
+elefante1 = Elefante('Fred','Marrom','Asiatico')
+elefante1.apresentar()
