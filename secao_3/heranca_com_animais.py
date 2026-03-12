@@ -23,17 +23,26 @@ class Animal:
     print(f'Eu sou o {self.especie} chamado {self.nome}')
 
 class Gato(Animal):
-  pass
+  def emitir_som(self):
+    print('miau')
+
 class Cachorro(Animal):
-  pass
+  def emitir_som(self):
+    print('Au Au')
+
 class Elefante(Animal):
-  pass
+  def emitir_som(self):
+    print(':P')
+
 
 gato1 = Gato('Felix', 'Branco', 'Siames')
 gato1.apresentar()
+gato1.emitir_som()
 
 cachorro1 = Cachorro('Russo','preto','Pastor Alemão')
 cachorro1.apresentar()
+cachorro1.emitir_som()
 
 elefante1 = Elefante('Fred','Marrom','Asiatico')
 elefante1.apresentar()
+elefante1.emitir_som()
