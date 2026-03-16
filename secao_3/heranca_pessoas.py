@@ -16,11 +16,21 @@ class Funcionario(Pessoa):
     print(f'{self.nome} está trabalhando como {self.cargo}.')
 
 class Cliente(Pessoa):
-  pass
+  def __init__ (self, nome, idade, saldo):
+    super().__init__(nome, idade)
+    self.saldo = saldo
+
+  def comprar(self, valor_compra):
+    if valor_compra <= self.saldo:
+      self.saldo -= valor_compra
+      print(f'A sua compra de {valor_compra} foi aprovada! seu saldo atual é de: ${self.saldo}')
+    else:
+      print(f'Saldo insuficiente')
 
 f1 = Funcionario('Maria', 38,'gerente')
-f1.apresentar()
-f1.trabalhar()
+# f1.apresentar()
+# f1.trabalhar()
 
-c1 = Cliente('artur', 17)
-c1.apresentar()
+c1 = Cliente('artur', 17, 200)
+# c1.apresentar()
+c1.comprar(201)
