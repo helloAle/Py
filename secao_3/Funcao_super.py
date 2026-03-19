@@ -8,6 +8,9 @@ class Escola():
     self.nome = nome
     self.idade = idade
 
+  def Apresentar(self):
+    print(f'Meu nome é {self.nome}!')
+
 # classes filhas
 class Aluno(Escola):
   def __init__(self, nome, idade, ano):
@@ -30,5 +33,5 @@ a1 = Aluno('Marcos', 12, 8)
 p1 = Professor('Roberto', 34, 'Geometria')
 as1 = Assistente('Ana Maria', 29, 'C')
 
-print(a1.ano)
+as1.Apresentar()
 
