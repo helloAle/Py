@@ -19,6 +19,7 @@ class Aluno(Escola):
     self.ano = ano
 
   def Apresentar(self):
+    super().Apresentar() #executa a função de mesmo nome da classe mae e filha
     print(f'Meu nome é {self.nome} e tenho {self.idade} anos de idade!')
   
 class Professor(Escola):
