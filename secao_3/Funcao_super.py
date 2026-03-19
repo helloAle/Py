@@ -2,6 +2,7 @@
 
 # SISTEMA DE ESCOLA
 # preciso criar classes para diferentes cargos, pessoas
+# classe filha sobrepoe classe mae
 
 class Escola():
   def __init__(self, nome, idade):
@@ -17,6 +18,8 @@ class Aluno(Escola):
     super().__init__(nome, idade)
     self.ano = ano
 
+  def Apresentar(self):
+    print(f'Meu nome é {self.nome} e tenho {self.idade} anos de idade!')
   
 class Professor(Escola):
   def __init__(self, nome, idade, materia):
@@ -33,5 +36,5 @@ a1 = Aluno('Marcos', 12, 8)
 p1 = Professor('Roberto', 34, 'Geometria')
 as1 = Assistente('Ana Maria', 29, 'C')
 
-as1.Apresentar()
+a1.Apresentar()
 
