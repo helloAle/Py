@@ -51,6 +51,11 @@ p1 = Professor('Roberto', 34, True, 'Geometria')
 as1 = Assistente('Ana Maria', 29, False, 'C')
 
 a1.Apresentar()
+a1.Verificar_status()
+
 p1.Apresentar()
+p1.Verificar_status()
+
 as1.Apresentar()
+as1.Verificar_status()
 
