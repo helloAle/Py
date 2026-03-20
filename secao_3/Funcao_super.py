@@ -13,6 +13,10 @@ class Escola():
   def Apresentar(self):
     print(f'\nMeu nome é {self.nome}!')
 
+  def Verificar_status(self):
+    # print(f'Status: {self.status}')
+    print(f'Status: {"ATIVO" if self.status else "INATIVO"}') #se o status for True, retorna ATIVO, se não, INATIVO
+
 # classes filhas
 class Aluno(Escola):
   def __init__(self, nome, idade, status, ano):
