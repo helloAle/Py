@@ -5,37 +5,48 @@
 # classe filha sobrepoe classe mae
 
 class Escola():
-  def __init__(self, nome, idade):
+  def __init__(self, nome, idade, status):
     self.nome = nome
     self.idade = idade
+    self.status = status
 
   def Apresentar(self):
-    print(f'Meu nome é {self.nome}!')
+    print(f'\nMeu nome é {self.nome}!')
 
 # classes filhas
 class Aluno(Escola):
-  def __init__(self, nome, idade, ano):
-    super().__init__(nome, idade)
+  def __init__(self, nome, idade, status, ano):
+    super().__init__(nome, idade, status)
     self.ano = ano
 
   def Apresentar(self):
     super().Apresentar() #executa a função de mesmo nome da classe mae e filha
-    print(f'Meu nome é {self.nome} e tenho {self.idade} anos de idade!')
-  
+    print(f'\nMeu nome é {self.nome} e tenho {self.idade} anos de idade!')
+
 class Professor(Escola):
-  def __init__(self, nome, idade, materia):
-    super().__init__(nome, idade)
+  def __init__(self, nome, idade, status, materia):
+    super().__init__(nome, idade, status)
     self.materia = materia
+
+  def Apresentar(self):
+    super().Apresentar() #executa a função de mesmo nome da classe mae e filha
+    print(f'\nMeu nome é {self.nome} e leciono {self.materia}!')
 
 
 class Assistente(Escola):
-  def __init__(self, nome, idade, bloco):
-    super().__init__(nome, idade)
+  def __init__(self, nome, idade, status, bloco):
+    super().__init__(nome, idade, status)
     self.bloco = bloco
-    
-a1 = Aluno('Marcos', 12, 8)
-p1 = Professor('Roberto', 34, 'Geometria')
-as1 = Assistente('Ana Maria', 29, 'C')
+
+  def Apresentar(self):
+    super().Apresentar() #executa a função de mesmo nome da classe mae e filha
+    print(f'\nMeu nome é {self.nome} e sou assistente no Bloco {self.bloco}!')
+
+a1 = Aluno( nome = 'Marcos', idade = 12,status = True, ano = 8)
+p1 = Professor('Roberto', 34, True, 'Geometria')
+as1 = Assistente('Ana Maria', 29, False, 'C')
 
 a1.Apresentar()
+p1.Apresentar()
+as1.Apresentar()
 
