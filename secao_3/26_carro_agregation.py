@@ -19,12 +19,14 @@ class Carro:
 
 motor_v6 = Motor('ford', 300)
 motor_v8 = Motor('Ferrari', 650)
+motor_v12 = Motor('Lamborghini', 950)
 
 # criar o carro e adincionar o motor nele
 
 carro = Carro()
 carro.adicionar_motor(motor_v6)
 carro.adicionar_motor(motor_v8)
+carro.adicionar_motor(motor_v12)
 
 # Listar os motores
 carro.listar_motores()
