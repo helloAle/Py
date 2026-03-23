@@ -13,6 +13,8 @@ class Computador:
     self.gpu.mostrar_gpu()
     self.cpu.mostrar_cpu()
 
+# AS CLASSES FICAM DENTRO DA CLASSE PAI POIS
+# SÓ EXISTEM DENTRO DESTE CONTEXTO
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   class GPU: # NESTED CLASS
@@ -34,6 +36,10 @@ class Computador:
     def mostrar_cpu(self):
       print(f'CPU: {self.nome} - {self.cores} Núcleos - {self.clock_ghz} gHz ')
     
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# ADICIONAR MAIS
+
 
 #  UTILIZAÇÃO
 
