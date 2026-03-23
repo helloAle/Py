@@ -13,6 +13,8 @@ class Computador:
     self.gpu.mostrar_gpu()
     self.cpu.mostrar_cpu()
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   class GPU: # NESTED CLASS
     def __init__(self, nome, memoria_gb):
       self.nome = nome
