@@ -16,7 +16,9 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS contas_bancarias(
 #                (titular, saldo, cpf) VALUES
 #                ('Ale', -7000, '123456789')""")
 
-cursor.execute("""SELECT titular, saldo FROM contas_bancarias""")
+# cursor.execute("""SELECT titular, saldo FROM contas_bancarias""")
+cursor.execute("""SELECT titular, saldo FROM contas_bancarias
+               WHERE saldo < 0""")
 contas = cursor.fetchall()
 for conta in contas:
     titular, saldo = conta
