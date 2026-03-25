@@ -1,11 +1,16 @@
-import tkinter as tk # importei a biblioteca e apelidei como tk neeeee
+import tkinter as tk
 
-root = tk.Tk()      #  Tk() cria a janela //  root é a variavel que ta guardando a janela :P
-                    # entao a variavel que guarda a janela ta recebendo a biblioteca criando a janela
+nome = input('Digite seu nome: ')
 
-class Application:  # criando a classe da aplicação :P
-    def __init__(self, master=None):    # __init__ é o contrutor e self é o proprio objeto, master(janela)
-        pass        # faz nada
+J=janela = tk.Tk()
+janela.title('janela nome, esse e o nome da janela :D')
+janela.geometry('500x500')
 
-Application(root)   # A CLASSE Application ESTÁ CRIANDO UM OBJETO e recebendo (root) [root possui a janeta]
-root.mainloop()     # Mantem rodando :P
+tk.Label(janela, text=f"oi, {nome} :D").pack()
+
+# class Application:
+#     def __init__(self, master=None):
+#         pass
+
+# Application(janela)
+janela.mainloop()
