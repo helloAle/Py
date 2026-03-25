@@ -11,12 +11,14 @@ janela = tk.Tk()
 janela.title('Login')
 janela.geometry('400x300')
 
-tk.Label(janela, text='user').pack()
-usuario_entry = tk.Entry(janela)
+pagina_login = tk.Frame(janela).pack()
+
+tk.Label(pagina_login, text='user').pack()
+usuario_entry = tk.Entry(pagina_login)
 usuario_entry.pack()
 
-tk.Label(janela, text='password').pack()
-senha_entry = tk.Entry(janela)
+tk.Label(pagina_login, text='password').pack()
+senha_entry = tk.Entry(pagina_login)
 senha_entry.pack()
 
 def login():
@@ -27,31 +29,14 @@ def login():
     else:
         mensagem_label['text'] = 'credenciais invalidas'
 
-tk.Button(janela, text='login', command=login).pack()
+tk.Button(pagina_login, text='login', command=login).pack()
 
-mensagem_label = tk.Label(janela, text='')
+mensagem_label = tk.Label(pagina_login, text='')
 mensagem_label.pack()
 
 
-
-# texto = tk.Label(janela, text=f"INSIRA SEU NOME")
-# texto.pack()
-
-# def resposta_botao():
-#     nome = entrada_texto.get()
-#     texto['text'] = f'o {nome} apertou aqui ow'
-
-# entrada_texto = tk.Entry(janela)
-# entrada_texto.pack()
-# tk.Button(janela, text="botaoao", command=resposta_botao).pack()
-
-# class Application:
-#     def __init__(self, master=None):
-#         pass
-
-# Application(janela)
-
 janela.mainloop()
+
 
 #    _____                                            .___
 #   / ___ \  _________________  ________    ____    __| _/
