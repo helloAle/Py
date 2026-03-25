@@ -1,7 +1,7 @@
 import tkinter as tk
 
 contas = [
-    ('lan', '123'),
+    ('admin', 'admin'),
     ('ale', 'ale')
 ]
 
