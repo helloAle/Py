@@ -2,7 +2,7 @@ import tkinter as tk
 
 nome = input('Digite seu nome: ')
 
-J=janela = tk.Tk()
+janela = tk.Tk()
 janela.title('janela nome, esse e o nome da janela :D')
 janela.geometry('500x500')
 
