@@ -25,17 +25,28 @@ janela.geometry('400x300')
 
 # ================== FUNÇÕES ==================
 
+def ativar_enter_login():
+    janela.bind("<Return>", lambda event: login())
+
+def ativar_enter_registro():
+    janela.bind("<Return>", lambda event: register())
+
 def ir_para_registro():
     pagina_login.pack_forget()
-    pagina_registro.pack()
+    pagina_registro.pack(fill="both", expand=True)
+    ativar_enter_registro()
 
 def ir_para_login():
     pagina_registro.pack_forget()
+    pagina_sistema.pack_forget()
     pagina_login.pack(fill="both", expand=True)
+    ativar_enter_login()
 
 def logout():
     pagina_sistema.pack_forget()
-    pagina_login.pack()
+    pagina_login.pack(fill="both", expand=True)
+    ativar_enter_login()
+
 # -------- REGISTER --------
 
 def register():
@@ -84,7 +95,7 @@ def login():
 
     if resultado:
         pagina_login.pack_forget()
-        pagina_sistema.pack()
+        pagina_sistema.pack(fill="both", expand=True)
     else:
         mensagem_login.config(text="Credenciais inválidas", fg="red")
 
@@ -133,12 +144,11 @@ tk.Button(pagina_registro, text='Voltar para login', command=ir_para_login).pack
 pagina_sistema = tk.Frame(janela)
 
 tk.Label(pagina_sistema, text='Tudo certo! Você entrou no sistema 😎').pack()
-
 tk.Button(pagina_sistema, text='Logout', command=logout).pack()
-
 
 # ================== INICIO ==================
 
-pagina_login.pack()
+pagina_login.pack(fill="both", expand=True)
+ativar_enter_login()
 
 janela.mainloop()
