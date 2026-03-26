@@ -1,8 +1,13 @@
-import tkinter as tk
+import customtkinter as ctk
 import sqlite3
 import hashlib
 
-# ================== BANCO DE DADOS ==================
+# ================== CONFIG ==================
+
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
+
+# ================== BANCO ==================
 
 conexao = sqlite3.connect("teste.db")
 cursor = conexao.cursor()
@@ -19,17 +24,17 @@ conexao.commit()
 
 # ================== JANELA ==================
 
-janela = tk.Tk()
-janela.title('Sistema')
-janela.geometry('400x300')
+janela = ctk.CTk()
+janela.title("Sistema")
+janela.geometry("400x300")
 
 # ================== FUNÇÕES ==================
 
 def ativar_enter_login():
-    janela.bind("<Return>", lambda event: login())
+    janela.bind("<Return>", lambda e: login())
 
 def ativar_enter_registro():
-    janela.bind("<Return>", lambda event: register())
+    janela.bind("<Return>", lambda e: register())
 
 def ir_para_registro():
     pagina_login.pack_forget()
@@ -47,14 +52,14 @@ def logout():
     pagina_login.pack(fill="both", expand=True)
     ativar_enter_login()
 
-# -------- REGISTER --------
+# ================== REGISTER ==================
 
 def register():
     usuario = usuario_registro_entry.get()
     senha = senha_registro_entry.get()
 
     if usuario == "" or senha == "":
-        mensagem_registro.config(text="Preencha todos os campos", fg="red")
+        mensagem_registro.configure(text="Preencha todos os campos", text_color="red")
         return
 
     try:
@@ -66,22 +71,22 @@ def register():
         )
         conexao.commit()
 
-        mensagem_registro.config(text="Usuário registrado!", fg="green")
+        mensagem_registro.configure(text="Usuário registrado!", text_color="green")
 
-        usuario_registro_entry.delete(0, tk.END)
-        senha_registro_entry.delete(0, tk.END)
+        usuario_registro_entry.delete(0, "end")
+        senha_registro_entry.delete(0, "end")
 
     except sqlite3.IntegrityError:
-        mensagem_registro.config(text="Usuário já existe!", fg="red")
+        mensagem_registro.configure(text="Usuário já existe!", text_color="red")
 
-# -------- LOGIN --------
+# ================== LOGIN ==================
 
 def login():
     usuario = usuario_login_entry.get()
     senha = senha_login_entry.get()
 
     if usuario == "" or senha == "":
-        mensagem_login.config(text="Preencha todos os campos", fg="red")
+        mensagem_login.configure(text="Preencha todos os campos", text_color="red")
         return
 
     senha_hash = hashlib.sha256(senha.encode()).hexdigest()
@@ -91,62 +96,56 @@ def login():
         (usuario, senha_hash)
     )
 
-    resultado = cursor.fetchone()
-
-    if resultado:
+    if cursor.fetchone():
         pagina_login.pack_forget()
         pagina_sistema.pack(fill="both", expand=True)
     else:
-        mensagem_login.config(text="Credenciais inválidas", fg="red")
+        mensagem_login.configure(text="Credenciais inválidas", text_color="red")
 
-# ================== LOGIN ==================
+# ================== LOGIN UI ==================
 
-pagina_login = tk.Frame(janela)
+pagina_login = ctk.CTkFrame(janela)
 
-tk.Label(pagina_login, text='Login').pack()
+ctk.CTkLabel(pagina_login, text="Login").pack(pady=10)
 
-tk.Label(pagina_login, text='User').pack()
-usuario_login_entry = tk.Entry(pagina_login)
-usuario_login_entry.pack()
+usuario_login_entry = ctk.CTkEntry(pagina_login, placeholder_text="Usuário")
+usuario_login_entry.pack(pady=5)
 
-tk.Label(pagina_login, text='Password').pack()
-senha_login_entry = tk.Entry(pagina_login, show="*")
-senha_login_entry.pack()
+senha_login_entry = ctk.CTkEntry(pagina_login, placeholder_text="Senha", show="*")
+senha_login_entry.pack(pady=5)
 
-mensagem_login = tk.Label(pagina_login, text='')
+mensagem_login = ctk.CTkLabel(pagina_login, text="")
 mensagem_login.pack()
 
-tk.Button(pagina_login, text='Login', command=login).pack()
-tk.Button(pagina_login, text='Ir para registro', command=ir_para_registro).pack()
+ctk.CTkButton(pagina_login, text="Login", command=login).pack(pady=5)
+ctk.CTkButton(pagina_login, text="Ir para registro", command=ir_para_registro).pack()
 
 # ================== REGISTRO ==================
 
-pagina_registro = tk.Frame(janela)
+pagina_registro = ctk.CTkFrame(janela)
 
-tk.Label(pagina_registro, text='Registro').pack()
+ctk.CTkLabel(pagina_registro, text="Registro").pack(pady=10)
 
-tk.Label(pagina_registro, text='User').pack()
-usuario_registro_entry = tk.Entry(pagina_registro)
-usuario_registro_entry.pack()
+usuario_registro_entry = ctk.CTkEntry(pagina_registro, placeholder_text="Usuário")
+usuario_registro_entry.pack(pady=5)
 
-tk.Label(pagina_registro, text='Password').pack()
-senha_registro_entry = tk.Entry(pagina_registro, show="*")
-senha_registro_entry.pack()
+senha_registro_entry = ctk.CTkEntry(pagina_registro, placeholder_text="Senha", show="*")
+senha_registro_entry.pack(pady=5)
 
-mensagem_registro = tk.Label(pagina_registro, text='')
+mensagem_registro = ctk.CTkLabel(pagina_registro, text="")
 mensagem_registro.pack()
 
-tk.Button(pagina_registro, text='Registrar', command=register).pack()
-tk.Button(pagina_registro, text='Voltar para login', command=ir_para_login).pack()
+ctk.CTkButton(pagina_registro, text="Registrar", command=register).pack(pady=5)
+ctk.CTkButton(pagina_registro, text="Voltar", command=ir_para_login).pack()
 
 # ================== SISTEMA ==================
 
-pagina_sistema = tk.Frame(janela)
+pagina_sistema = ctk.CTkFrame(janela)
 
-tk.Label(pagina_sistema, text='Tudo certo! Você entrou no sistema 😎').pack()
-tk.Button(pagina_sistema, text='Logout', command=logout).pack()
+ctk.CTkLabel(pagina_sistema, text="Bem-vindo 😎").pack(pady=20)
+ctk.CTkButton(pagina_sistema, text="Logout", command=logout).pack()
 
-# ================== INICIO ==================
+# ================== START ==================
 
 pagina_login.pack(fill="both", expand=True)
 ativar_enter_login()
